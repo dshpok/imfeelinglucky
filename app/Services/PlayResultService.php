@@ -9,9 +9,6 @@ use App\Services\DTO\PlayResultDTO;
 use \Illuminate\Support\Collection;
 use App\Interfaces\PlayResultInterface;
 
-/**
- *
- */
 class PlayResultService Implements PlayResultInterface
 {
     /**

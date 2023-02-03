@@ -9,11 +9,17 @@ use Illuminate\Http\JsonResponse;
 
 class PlayResultController extends Controller
 {
+    /**
+     * @param PlayResultInterface $service
+     */
     public function __construct(private PlayResultInterface $service)
     {
 
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function play(): JsonResponse
     {
         $result = $this->service->play(session('userId'));
@@ -23,8 +29,9 @@ class PlayResultController extends Controller
             'win_sum' => $result->getWinSum(),
         ]);
     }
-
-
+    /**
+     * @return JsonResponse
+     */
     public function getHistory()
     {
         $userId = session('userId');

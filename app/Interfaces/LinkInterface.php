@@ -12,6 +12,11 @@ interface LinkInterface
      * @return void
      */
     public function create(int $userId, string $link): void;
+
+    /**
+     * @param int $userId
+     * @return string
+     */
     public function update(int $userId): string;
 
     /**

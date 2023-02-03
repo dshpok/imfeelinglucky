@@ -10,6 +10,9 @@ use App\Interfaces\LinkInterface;
 
 class LinkService Implements LinkInterface
 {
+    /**
+     * @param LinkRepository $linkRepository
+     */
     public function __construct(
         private LinkRepository $linkRepository
     ) {

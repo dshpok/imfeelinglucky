@@ -11,7 +11,10 @@ use Illuminate\Http\JsonResponse;
 
 class RegisterController extends Controller
 {
-   public function index(): View
+    /**
+     * @return View
+     */
+    public function index(): View
     {
         return view('register.index');
     }
