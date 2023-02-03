@@ -14,13 +14,13 @@
                             <form action="{{ route('register.create') }}" method="post" id="register_form">
                                 @csrf
                                 <div class="register-form__body__input">
-                                    <input type="text" name="name" placeholder="Name" value="{{ old('name') }}">
+                                    <input type="text" name="name" placeholder="Username" value="{{ old('name') }}">
                                     @error('name')
                                     <span class="error">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="register-form__body__input">
-                                    <input type="tel" name="phone_number" placeholder="phone number" value="{{ old('phone_number') }}">
+                                    <input type="tel" name="phone_number" placeholder="Phonenumber" value="{{ old('phone_number') }}">
                                     @error('phone_number')
                                     <span class="error">{{ $message }}</span>
                                     @enderror
