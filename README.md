@@ -35,5 +35,9 @@ For init project
 
 #### Adding APP_KEY:
 * Run `php artisan key:generate` for generating APP_KEY
+
+#### Update composer dependencies:
+Run `composer update`
+
 * #### Create database:
 * Run `php artisan migrate` for creating tables in database
