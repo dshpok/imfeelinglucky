@@ -1,0 +1,40 @@
+version: "3.8"
+volumes:
+  mysql-data: {}
+
+services:
+  server_php_fpm:
+    build:
+        context: ./docker/php-fpm
+        dockerfile: Dockerfile
+    restart: always
+    container_name: php_fpm
+    volumes:
+      - ./:/var/www
+
+  server_mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    volumes:
+      - mysql-data:/var/lib/mysql:delegated
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=app
+      - MYSQL_PASSWORD=app
+    ports: ["3306:3306"]
+
+  server_nginx:
+    image: nginx:alpine
+    container_name: nginx
+#    restart: always
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf/:/etc/nginx/conf.d/
+    ports:
+      - "8091:80"
+    depends_on:
+      - server_php_fpm
+      - server_mysql
+
